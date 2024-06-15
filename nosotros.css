@@ -1,0 +1,200 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background:rgb(184, 181, 181) ;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+}    
+main{
+    width: 100%;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas: "header header header"
+                         "section section aside"
+                         "picture-1 picture-2 aside"
+                         "footer footer footer";
+}
+main > div,
+header, section, aside, footer {
+    background: white;
+    padding: 15px;
+    border-radius: 4px;
+}
+header{
+    text-align: center;
+    position: sticky;
+    top: 0;
+    background-color: black;
+    padding-bottom: 15px;
+    grid-area: header;
+}
+nav{ 
+    font-weight: bold;
+}
+header li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+a{
+    color: gray;
+    text-decoration: none;
+    background-color: white;
+    padding: 4px;
+    border-radius: 40px;
+}
+a:hover{
+    color: #FFC500;
+    background-color: #7F0909;
+    padding: 6px;
+    border-radius: 40px;
+}
+h2{
+    background-color:gray;
+    text-align: center;
+    margin: 10px;
+}
+section{
+    grid-area: section;
+    margin: 10px;
+}
+aside{
+    margin: 10px;
+    background: gray;
+    grid-area: aside;
+    min-height: 100px;
+}
+.picture-1 , .picture-2{
+    background: gray;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+.picture-1{
+    grid-area: picture-1;
+    position: relative;
+    transition: all 0.3s ease;
+}
+.picture-2{
+    grid-area: picture-2;
+    position: relative;
+    transition: all 0.3s ease;
+}
+footer{
+    background: gray;
+    color: white;
+    grid-area: footer;
+    height: 60px;
+}
+footer p {
+    margin: 15px;
+}
+@media screen and (max-width:768px){
+    body{ background: #7F0909;
+        grid-template-areas: "header header header"
+                             "section section section"
+                             "aside aside aside"
+                             "picture-1 picture-1 picture-2"
+                             "footer footer footer";
+    }
+}
+/* Transicion imagen 1 */
+.picture-1 img:first-child {
+  box-shadow: 0 60px 60px -60x rgba(0, 30, 255, 0.5);
+  border-radius: 4px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.picture-1 img:last-child {
+  position: absolute;
+  width: 50%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transform: translateY(25%);
+  transition: 0.3s ease;
+  opacity: 0;
+}
+
+.picture-1:hover {
+  transform: perspective(250px) rotateX(10deg) translateY(-5%) translateZ(0);
+}
+.picture-1::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 10%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0) 95%
+  );
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.picture-1:hover::before {
+  opacity: 1;
+}
+
+.picture-1:hover img:last-child {
+  opacity: 1;
+  transform: translateY(10%);
+}
+/* Transicion imagen 2 */
+.picture-2 img:first-child {
+    box-shadow: 0 60px 60px -60x rgba(0, 30, 255, 0.5);
+    border-radius: 4px;
+    object-fit: cover;
+    width: 100%;
+  }
+  
+.picture-2 img:last-child {
+    position: absolute;
+    width: 70%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateY(25%);
+    transition: 0.3s ease;
+    opacity: 0;
+  }
+  
+.picture-2:hover {
+    transform: perspective(250px) rotateX(10deg) translateY(-5%) translateZ(0);
+  }
+.picture-2::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(
+      to bottom,
+      transparent 10%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0) 95%
+    );
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  
+.picture-2:hover::before {
+    opacity: 1;
+  }
+  
+.picture-2:hover img:last-child {
+    opacity: 1;
+    transform: translateY(10%);
+  }
+  
