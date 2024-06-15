@@ -154,3 +154,6 @@ iframe{
     grid-area: footer;
     height: 60px;
 }
+p{
+    padding:20px;
+}
